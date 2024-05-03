@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('dino.png');
+            background-size: cover;
+        }
+        #goToGameBtn {
+            font-size: 24px;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Login</h2>
+    
+    <label for="uuidInput">Enter ID</label>
+    <input type="text" id="uuidInput" name="uuidInput">
+    <button onclick="storeUUID()">Rysteria Login</button>
+    
+    <button id="goToGameBtn" onclick="goToGame()">GAME</button>
+    
+    <script>
+        function storeUUID() {
+            var uuid = document.getElementById('uuidInput').value.trim();
+            var uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+            if (!uuidRegex.test(uuid)) {
+                alert('Please enter a valid UUID.');
+                return;
+            }
+            localStorage.setItem('rivet_account_uuid', uuid);
+            alert('Login successful!');
+            window.location.href = 'https://maxnest0x0.github.io/rysteria/';
+        }
+
+        function goToGame() {
+            alert("Travelling back in time...");
+        }
+    </script>
+</body>
+</html>
